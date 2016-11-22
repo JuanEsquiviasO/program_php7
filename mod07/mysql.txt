@@ -1,0 +1,107 @@
+//Conect at server MySQL
+mysql -h127.0.0.1 -uroot -p
+
+//Close
+quit
+exit
+
+//Version MySQL
+SELECT VERSION();
+
+//Date
+SELECT CURRENT_DATE();
+
+//Keywords is not sensitive a camel case
+
+//Date and hour current
+SELECT NOW();
+
+//User current
+SELECT USER();
+
+//Cancell consult 
+\c
+
+//Command Show database
+SHOW DATABASES;
+
+//Command Delete Databese (warning)
+DROP DATABASE _______;
+
+//Create database
+CREATE DATABASE______;
+
+//Access and use Database
+USE _____;
+
+//Show tables of use Database
+SHOW TABLES;
+
+//Create table
+CREATE TABLE products (
+	id int(11) unsigned NOT NULL AUTO_INCREMENT,
+	name varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+	size varchar(5) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+	price int(11) NOT NULL,
+	PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+// Describe details table
+DESCRIBE ______;
+
+//Command Delete Table (warning)
+DROP TABLE _______;
+
+//Insert values in tables
+INSERT INTO _______ VALUES (NULL, 'T-shirt Lego Technic', 'L', 50);
+INSERT INTO products VALUES (NULL, 'T-shirt Lego Star Wars', 'XL', 60);
+INSERT INTO products VALUES (NULL, 'T-shirt Lego Bionicle', 'M', 40);
+INSERT INTO products VALUES (NULL, 'T-shirt Lego City', 'S', 30);
+
+//Insert values in tables -phpMyAdmin
+INSERT INTO `products` (`id`, `name`, `size`, `price`) VALUES (NULL, 'Lego Mindstore', 'XXL', '350');
+
+//Show content table
+SELECT ____, ____ FROM products;
+
+//Show content table shortcut
+SELECT * FROM products;
+
+//Show content table exactly price with WHERE
+SELECT name, price FROM products WHERE price = 30;
+
+//Update content only item
+UPDATE products SET price = 100 WHERE name = 'T-shirt Lego Technic'; -- name
+UPDATE products SET price = 200 WHERE id = 1;  ------------------------ ID
+
+//Order table with ORDER BY
+SELECT id, name, price FROM products ORDER BY price ASC;
+
+SELECT name, price FROM products WHERE price > 40 ORDER BY name ASC;
+SELECT name, price FROM products WHERE price > 40 ORDER BY name DESC;
+
+// LIKE select nameand price of products with differents paramethers
+ SELECT name, price FROM products WHERE name LIKE '%c';
+ SELECT name, price FROM products WHERE name LIKE '%c%';
+ SELECT name, price FROM products WHERE name LIKE '%c%' AND price >=40;
+
+// DELETE registers: never forget the keyword WHERE *************
+DELETE FROM products WHERE id = 3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
